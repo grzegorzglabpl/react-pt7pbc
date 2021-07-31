@@ -1,12 +1,20 @@
 import React from 'react';
 import './style.css';
 
-const Header = () => {
-  return <header>Naglowek</header>;
+const Header = ({ imie, nazwisko }) => {
+  return (
+    <header>
+      Witaj {imie} {nazwisko} na naszej stronie
+    </header>
+  );
 };
 
-const Nav = () => {
-  return <nav>Nawigacja</nav>;
+const Nav = props => {
+  const { naglowek, aktywnaStrona } = props;
+
+  const naglowek1 = naglowek + ' hello';
+
+  return <nav>{naglowek1}</nav>;
 };
 
 const Main = () => {
@@ -23,9 +31,9 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div contentEditable="true">
-      <Header />
-      <Nav />
+    <div>
+      <Header imie="Jan" nazwisko="Twardowski" />
+      <Nav naglowek="Sekcja Nawigacji" aktywnaStrona="1" />
       <Main />
       <Aside />
       <Footer />
