@@ -1,3 +1,13 @@
-h1, p {
+* {
   font-family: Lato;
 }
+
+section {
+  display: none;
+}
+
+section:target {
+  display: block;
+  color: rgba(0, 0, 0, 1);
+}
+
