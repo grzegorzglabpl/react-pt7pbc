@@ -11,3 +11,14 @@ section:target {
   color: rgba(0, 0, 0, 1);
 }
 
+form#formularz > fieldset {
+  display: none;
+}
+
+form#formularz > fieldset:first-of-type {
+  display: block;
+}
+
+form#formularz > input[type='checkbox']:checked + fieldset {
+  display: block;
+}

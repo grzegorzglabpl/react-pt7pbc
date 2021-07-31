@@ -3,7 +3,7 @@ import './style.css';
 
 export default function App() {
   return (
-    <div>
+    <div contentEditable="true">
       <h1>Hello</h1>
       <nav>
         <a href="#page1">page 1</a>
@@ -17,7 +17,7 @@ export default function App() {
         Praesent elementum ligula et neque consectetur, vel fermentum quam
         finibus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
-      <form>
+      <form id="formularz">
         <input id="aktywnyKrok1" type="checkbox" name="aktywnyKrok" value="1" />
         <fieldset>
           <legend>Krok 1</legend>
