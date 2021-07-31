@@ -1,11 +1,10 @@
 import React from 'react';
 import Pages from './pages';
 
-const { StronaGlowna, Kontakt } = Pages;
-
 const Routes = {
-  '/': () => <StronaGlowna />,
-  '/kontakt': () => <Kontakt />
+  '/': () => <Pages.StronaGlowna />,
+  '/kontakt': () => <Pages.Kontakt />,
+  '/aktualnosci': () => <Pages.Aktualnosci />
 };
 
 export default Routes;

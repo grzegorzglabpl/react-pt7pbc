@@ -1,18 +1,18 @@
 import React from 'react';
 import Components from '../components';
 
-const Kontakt = () => {
-  const { Header, Main, Nav, Footer } = Components;
+const { Header, Main, Aside, Footer } = Components;
 
+const Aktualnosci = () => {
   return (
     <>
-      <h1>Strona Kontakt</h1>
+      <h1>Strona Aktualności</h1>
       <Header />
       <Main />
-      <Nav />
+      <Aside />
       <Footer />
     </>
   );
 };
 
-export default Kontakt;
+export default Aktualnosci;
