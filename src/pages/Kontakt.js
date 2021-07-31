@@ -1,11 +1,15 @@
 import React from 'react';
+import Components from '../components';
 
 const Kontakt = () => {
+  const { Header, Main, Footer } = Components;
+
   return (
-    <section>
-      <h1>Kontakt</h1>
-      <p>jestes na stronie kontakt</p>
-    </section>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+    </>
   );
 };
 
