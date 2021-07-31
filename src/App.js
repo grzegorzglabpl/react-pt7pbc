@@ -1,42 +1,21 @@
 import React from 'react';
+import Pages from './pages';
+import Componets from './components';
+
 import './style.css';
 
-const Header = ({ imie, nazwisko }) => {
-  return (
-    <header>
-      Witaj {imie} {nazwisko} na naszej stronie
-    </header>
-  );
-};
-
-const Nav = props => {
-  const { naglowek, aktywnaStrona } = props;
-
-  const naglowek1 = naglowek + ' hello';
-
-  return <nav>{naglowek1}</nav>;
-};
-
-const Main = () => {
-  return <main>Main</main>;
-};
-
-const Aside = () => {
-  return <aside>Aside</aside>;
-};
-
-const Footer = () => {
-  return <footer>Footer</footer>;
-};
-
 export default function App() {
+  const { StronaGlowna, Kontakt } = Pages;
+  const { Aside, Footer, Header, Main, Nav } = Componets;
   return (
-    <div>
+    <>
       <Header imie="Jan" nazwisko="Twardowski" />
       <Nav naglowek="Sekcja Nawigacji" aktywnaStrona="1" />
       <Main />
+      <StronaGlowna />
+      <Kontakt />
       <Aside />
       <Footer />
-    </div>
+    </>
   );
 }
