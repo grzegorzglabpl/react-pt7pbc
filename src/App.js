@@ -1,14 +1,9 @@
 import React from 'react';
-import Pages from './pages';
+import Routes from './routes';
+import { useRoutes } from 'hookrouter';
 import './style.css';
 
 export default function App() {
-  const { StronaGlowna, Kontakt } = Pages;
-
-  return (
-    <>
-      <StronaGlowna />
-      <Kontakt />
-    </>
-  );
+  const routeResult = useRoutes(Routes);
+  return <>{routeResult}</>;
 }

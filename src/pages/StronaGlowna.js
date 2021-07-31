@@ -6,6 +6,7 @@ const StronaGlowna = () => {
 
   return (
     <>
+      <h1>Strona Główna</h1>
       <Header />
       <Nav />
       <Main />

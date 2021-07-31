@@ -6,6 +6,7 @@ const Kontakt = () => {
 
   return (
     <>
+      <h1>Strona Kontakt</h1>
       <Header />
       <Main />
       <Footer />
