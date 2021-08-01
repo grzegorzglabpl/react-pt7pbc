@@ -28,6 +28,12 @@
   color: red;
 }
 
+#formularzRejestracji textarea {
+  width: 70vw;
+  height: 70vw;
+  border: 1px solid green;
+}
+
 button[type='submit'] {
   color: green;
 }

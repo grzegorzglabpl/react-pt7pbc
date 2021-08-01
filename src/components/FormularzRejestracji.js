@@ -72,18 +72,35 @@ const FormularzRejestracji = () => {
         <fieldset>
           <legend>Zgoda RODO:</legend>
           <label for="zgodaRodoTak">TAK</label>
-          <input id="zgodaRodoTak" type="radio" name="zgodaRodo" />
+          <input
+            id="zgodaRodoTak"
+            type="radio"
+            name="zgodaRodo"
+            required
+            value="tak"
+          />
           <label for="zgodaRodoTak">NIE</label>
-          <input id="zgodaRodoNie" type="radio" name="zgodaRodo" checked />
+          <input id="zgodaRodoNie" type="radio" name="zgodaRodo" value="nie" />
         </fieldset>
         <fieldset>
           <legend>Zgody Marketingowe:</legend>
           <label for="zgodaNewsletter">
             Zgoda na zapisanie do newslettera:
           </label>
-          <input id="zgodaNewsletter" type="checkbox" name="zgodaNewsletter" />
+          <input
+            id="zgodaNewsletter"
+            type="checkbox"
+            name="zgodaNewsletter"
+            value="tak"
+          />
           <label for="zgodaOferta">Zgoda na przesyłanie oferty</label>
-          <input id="zgodaOferta" type="checkbox" name="zgodaOferta" checked />
+          <input
+            id="zgodaOferta"
+            type="checkbox"
+            name="zgodaOferta"
+            value="tak"
+            checked
+          />
         </fieldset>
       </fieldset>
       <fieldset>
