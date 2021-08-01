@@ -69,6 +69,34 @@ const FormularzRejestracji = () => {
       </fieldset>
       <fieldset>
         <legend>Zgody:</legend>
+        <fieldset>
+          <legend>Zgoda RODO:</legend>
+          <label for="zgodaRodoTak">TAK</label>
+          <input id="zgodaRodoTak" type="radio" name="zgodaRodo" />
+          <label for="zgodaRodoTak">NIE</label>
+          <input id="zgodaRodoNie" type="radio" name="zgodaRodo" checked />
+        </fieldset>
+        <fieldset>
+          <legend>Zgody Marketingowe:</legend>
+          <label for="zgodaNewsletter">
+            Zgoda na zapisanie do newslettera:
+          </label>
+          <input id="zgodaNewsletter" type="checkbox" name="zgodaNewsletter" />
+          <label for="zgodaOferta">Zgoda na przesyłanie oferty</label>
+          <input id="zgodaOferta" type="checkbox" name="zgodaOferta" checked />
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Informacje Dodatkowe:</legend>
+        <label for="informacjeDodatkowe">
+          Proszę wypełnić w przypadku potrzeby przesłania informacji dodatkowych
+        </label>
+        <textarea
+          id="informacjeDodatkowe"
+          name="informacjeDodatkowe"
+          placeholder="Proszę podać informacje dodatkowe"
+          title="Proszę podać informację dodatkowe"
+        />
       </fieldset>
       <nav>
         <button title="Zarejestruj się w systemie" type="submit">
