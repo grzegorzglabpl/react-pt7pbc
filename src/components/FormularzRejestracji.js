@@ -1,11 +1,16 @@
 import React from 'react';
+import './FormularzRejestracji.css';
 
 const FormularzRejestracji = () => {
   return (
-    <form method="post">
+    <form id="formularzRejestracji" method="post">
       <h2>Formularz Rejestracji:</h2>
-      <fieldset>
+      <fieldset id="DanePersonalne">
         <legend>Dane Personalne:</legend>
+        <label for="nazwisko">Podaj Nazwisko:</label>
+        <input id="nazwisko" name="nazwisko" type="text" value="" />
+        <label for="imie">Podaj Imię:</label>
+        <input id="imie" name="imie" type="text" value="" />
       </fieldset>
       <fieldset>
         <legend>Dane Kontaktowe:</legend>
