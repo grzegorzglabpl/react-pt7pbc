@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './FormularzRejestracji.css';
 
 const FormularzRejestracji = () => {
+  const [nazwisko, setNazwisko] = useState('Kowalski');
+  const [imie, setImie] = useState('Jan');
+
+  const [telefon, setTelefon] = useState('');
+  const [adresEmail, setAdresEmail] = useState('');
+  const [adresStronyWWW, setAdresStronyWWW] = useState('');
+
+  const [zgodaRodo, setZgodaRodo] = useState(true);
+  const [zgodaNewsletter, setZgodaNewsletter] = useState('');
+  const [zgodaOferta, setZgodaOferta] = useState('');
+
   return (
     <form action="" id="formularzRejestracji" method="get">
       <input
@@ -23,6 +34,8 @@ const FormularzRejestracji = () => {
           title="Proszę podać Nazwisko"
           minlength="3"
           maxlength="20"
+          value={nazwisko}
+          onChange={e => setNazwisko(e.target.value)}
         />
         <p class="walidator">Niepoprawna wartość.</p>
         <label for="imie">Podaj Imię:</label>
@@ -35,6 +48,8 @@ const FormularzRejestracji = () => {
           title="Proszę podać imię"
           minlength="3"
           maxlength="20"
+          value={imie}
+          onChange={e => setImie(e.target.value)}
         />
         <p class="walidator">Niepoprawna wartość.</p>
       </fieldset>
@@ -46,25 +61,32 @@ const FormularzRejestracji = () => {
           id="telefon"
           name="telefon"
           type="text"
+          value={telefon}
           required
           minlength="9"
           maxlength="9"
           pattern="^\d{9}$"
           placeholder="Podaj numer telefonu w formacie: 123456789"
+          onChange={e => setTelefon(e.target.value)}
         />
         <label for="email">Podaj adres email:</label>
         <input
           id="email"
           type="email"
+          name="adresEmail"
+          value={adresEmail}
           required
           placeholder="Podaj adres email"
+          onChange={e => setAdresEmail(e.target.value)}
         />
         <label for="stronaWWW">Adres strony WWW:</label>
         <input
           id="stronaWWW"
           name="stronaWWW"
+          value={adresStronyWWW}
           type="url"
           placeholder="Poda adres strony www"
+          onChange={e => setAdresStronyWWW(e.target.value)}
         />
       </fieldset>
       <fieldset>
@@ -77,10 +99,19 @@ const FormularzRejestracji = () => {
             type="radio"
             name="zgodaRodo"
             required
+            checked={zgodaRodo}
             value="tak"
+            onChange={e => setZgodaRodo(true)}
           />
           <label for="zgodaRodoTak">NIE</label>
-          <input id="zgodaRodoNie" type="radio" name="zgodaRodo" value="nie" />
+          <input
+            id="zgodaRodoNie"
+            type="radio"
+            name="zgodaRodo"
+            value="nie"
+            checked={!zgodaRodo}
+            onChange={e => setZgodaRodo(false)}
+          />
         </fieldset>
         <fieldset>
           <legend>Zgody Marketingowe:</legend>
