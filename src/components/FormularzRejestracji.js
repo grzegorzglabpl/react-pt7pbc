@@ -6,20 +6,14 @@ import './FormularzRejestracji.css';
 const FormularzRejestracji = () => {
   const useFormularzRejestracji = hooks.useFormularzRejestracji();
 
-  const [nazwisko, setNazwisko] = useState('Kowalski');
-  const [imie, setImie] = useState('Jan');
-
-  const [telefon, setTelefon] = useState('');
-  const [adresEmail, setAdresEmail] = useState('');
-  const [adresStronyWWW, setAdresStronyWWW] = useState('');
-
-  const [zgodaRodo, setZgodaRodo] = useState(true);
-  const [zgodaNewsletter, setZgodaNewsletter] = useState(false);
-  const [zgodaOferta, setZgodaOferta] = useState(true);
-  const [informacjeDodatkowe, setInformacjeDodatkowe] = useState('');
-
-  return (
-    <form action="" id="formularzRejestracji" method="get">
+  return !useFormularzRejestracji.clickSubmit ? (
+    <form
+      action=""
+      id="formularzRejestracji"
+      method="get"
+      onSubmit={useFormularzRejestracji.onClickSubmit}
+      onReset={useFormularzRejestracji.onClickReset}
+    >
       <input
         type="hidden"
         name="nazwaFormularza"
@@ -40,7 +34,7 @@ const FormularzRejestracji = () => {
           minlength="3"
           maxlength="20"
           value={useFormularzRejestracji.nazwisko}
-          onChange={e => setNazwisko(e.target.value)}
+          onChange={useFormularzRejestracji.onChangeNazwisko}
         />
         <p class="walidator">Niepoprawna wartość.</p>
         <label for="imie">Podaj Imię:</label>
@@ -54,7 +48,7 @@ const FormularzRejestracji = () => {
           minlength="3"
           maxlength="20"
           value={useFormularzRejestracji.imie}
-          onChange={e => setImie(e.target.value)}
+          onChange={useFormularzRejestracji.onChangeImie}
         />
         <p class="walidator">Niepoprawna wartość.</p>
       </fieldset>
@@ -72,7 +66,7 @@ const FormularzRejestracji = () => {
           maxlength="9"
           pattern="^\d{9}$"
           placeholder="Podaj numer telefonu w formacie: 123456789"
-          onChange={e => setTelefon(e.target.value)}
+          onChange={useFormularzRejestracji.onChangeTelefon}
         />
         <label for="email">Podaj adres email:</label>
         <input
@@ -82,7 +76,7 @@ const FormularzRejestracji = () => {
           value={useFormularzRejestracji.adresEmail}
           required
           placeholder="Podaj adres email"
-          onChange={e => setAdresEmail(e.target.value)}
+          onChange={useFormularzRejestracji.onChangeAdresEmail}
         />
         <label for="stronaWWW">Adres strony WWW:</label>
         <input
@@ -91,7 +85,7 @@ const FormularzRejestracji = () => {
           value={useFormularzRejestracji.adresStronyWWW}
           type="url"
           placeholder="Poda adres strony www"
-          onChange={e => setAdresStronyWWW(e.target.value)}
+          onChange={useFormularzRejestracji.onChangeAdresStronyWWW}
         />
       </fieldset>
       <fieldset>
@@ -106,7 +100,7 @@ const FormularzRejestracji = () => {
             required
             checked={useFormularzRejestracji.zgodaRodo}
             value="tak"
-            onChange={e => setZgodaRodo(true)}
+            onChange={useFormularzRejestracji.onChangeZgodaRodo}
           />
           <label for="zgodaRodoTak">NIE</label>
           <input
@@ -115,7 +109,7 @@ const FormularzRejestracji = () => {
             name="zgodaRodo"
             value="nie"
             checked={!useFormularzRejestracji.zgodaRodo}
-            onChange={e => setZgodaRodo(false)}
+            onChange={useFormularzRejestracji.onChangeZgodaRodo}
           />
         </fieldset>
         <fieldset>
@@ -129,7 +123,7 @@ const FormularzRejestracji = () => {
             name="zgodaNewsletter"
             value="tak"
             checked={useFormularzRejestracji.zgodaNewsletter}
-            onChange={e => setZgodaNewsletter(e.target.checked)}
+            onChange={useFormularzRejestracji.onChangeZgodaNewsletter}
           />
           <label for="zgodaOferta">Zgoda na przesyłanie oferty</label>
           <input
@@ -138,7 +132,7 @@ const FormularzRejestracji = () => {
             name="zgodaOferta"
             value="tak"
             checked={useFormularzRejestracji.zgodaOferta}
-            onChange={e => setZgodaOferta(e.target.checked)}
+            onChange={useFormularzRejestracji.onChangeZgodaOferta}
           />
         </fieldset>
       </fieldset>
@@ -153,7 +147,7 @@ const FormularzRejestracji = () => {
           placeholder="Proszę podać informacje dodatkowe"
           title="Proszę podać informację dodatkowe"
           value={useFormularzRejestracji.informacjeDodatkowe}
-          onChange={e => setInformacjeDodatkowe(e.target.value)}
+          onChange={useFormularzRejestracji.onChangeInformacjeDodatkowe}
         />
       </fieldset>
       <nav>
@@ -165,6 +159,8 @@ const FormularzRejestracji = () => {
         <input type="reset" value="Wyczyść Formularz" />
       </nav>
     </form>
+  ) : (
+    <section>Dziękujęmy za wypełnienie formularza rejestracji.</section>
   );
 };
 export default FormularzRejestracji;

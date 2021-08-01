@@ -9,7 +9,8 @@ const initialState = {
   zgodaRodo: true,
   zgodaNewsletter: false,
   zgodaOferta: true,
-  informacjeDodatkowe: ''
+  informacjeDodatkowe: '',
+  clickSubmit: false
 };
 
 const actions = {
@@ -26,14 +27,111 @@ const actions = {
   CHANGE_INFORMACJE_DODATKOWE: 'CHANGE_INFORMACJE_DODATKOWE'
 };
 
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case actions.CLICK_SUBMIT:
+      return {
+        ...state,
+        clickSubmit: true
+      };
+
+    case action.CLICK_RESET: {
+      return {
+        ...state
+      };
+    }
+    case action.CHANGE_NAZWISKO: {
+      const nazwisko = action.payload.value;
+      return {
+        ...state,
+        nazwisko: nazwisko
+      };
+    }
+
+    case action.CHANGE_IMIE: {
+      const imie = action.payload.value;
+
+      return {
+        ...state,
+        imie: imie
+      };
+    }
+
+    case action.CHANGE_TELEFON: {
+      const telefon = action.payload.value;
+
+      return {
+        ...state,
+        telefon: telefon
+      };
+    }
+
+    case action.CHANGE_ADRES_EMAIL: {
+      const adresEmail = action.payload.value;
+
+      return {
+        ...state,
+        adresEmail: adresEmail
+      };
+    }
+
+    case action.CHANGE_ADRES_STRONY_WWW: {
+      const adresStronyWWW = action.payload.value;
+
+      return {
+        ...state,
+        adresStronyWWW: adresStronyWWW
+      };
+    }
+
+    case action.CHANGE_ZGODA_RODO: {
+      const zgodaRodo = action.payload.checked;
+
+      return {
+        ...state,
+        zgodaRodo: zgodaRodo
+      };
+    }
+
+    case action.CHANGE_ZGODA_NEWSLETTER: {
+      const zgodaNewsletter = action.payload.checked;
+
+      return {
+        ...state,
+        zgodaNewsletter: zgodaNewsletter
+      };
+    }
+
+    case action.CHANGE_ZGODA_OFERTA: {
+      const zgodaOferta = action.payload.checked;
+
+      return {
+        ...state,
+        zgodaOferta: zgodaOferta
+      };
+    }
+
+    case action.CHANGE_INFORMACJE_DODATKOWE: {
+      const informacjeDodatkowe = action.payload.value;
+
+      return {
+        ...state,
+        informacjeDodatkowe: informacjeDodatkowe
+      };
+    }
+    /*
+    default:
+      throw new Error(
+        'useFormularzKontaktowy reducer error - action not supported.'
+      );*/
+  }
+};
 
 export const useFormularzKontaktowy = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const onClickSubmit = event => {
     event.preventDefault();
-
     dispatch({ type: actions.CLICK_SUBMIT, payload: event.target });
   };
 
