@@ -1,3 +1,43 @@
 #formularzRejestracji * {
   display: block;
 }
+
+#formularzRejestracji p.walidator {
+  display: none;
+}
+
+#formularzRejestracji input[type='text'],
+#formularzRejestracji input[type='tel'],
+#formularzRejestracji input[type='url'],
+#formularzRejestracji input[type='email'] {
+  display: block;
+  border: 1px solid green;
+  width: 70vw;
+}
+
+#formularzRejestracji input[type='text']:invalid,
+#formularzRejestracji input[type='tel']:invalid,
+#formularzRejestracji input[type='url']:invalid,
+#formularzRejestracji input[type='email']:invalid {
+  display: block;
+  border: 1px solid red;
+}
+
+#formularzRejestracji input[type='text']:invalid + p.walidator {
+  display: block;
+  color: red;
+}
+
+button[type='submit'] {
+  color: green;
+}
+
+button[type='submit']::before {
+  content: '\039e';
+  color: red;
+}
+
+button[type='submit']::after {
+  content: ' - po';
+  color: blue;
+}
