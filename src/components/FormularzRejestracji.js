@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import hooks from '../hooks';
+
 import './FormularzRejestracji.css';
 
 const FormularzRejestracji = () => {
+  const useFormularzRejestracji = hooks.useFormularzRejestracji();
+
   const [nazwisko, setNazwisko] = useState('Kowalski');
   const [imie, setImie] = useState('Jan');
 
@@ -10,8 +14,9 @@ const FormularzRejestracji = () => {
   const [adresStronyWWW, setAdresStronyWWW] = useState('');
 
   const [zgodaRodo, setZgodaRodo] = useState(true);
-  const [zgodaNewsletter, setZgodaNewsletter] = useState('');
-  const [zgodaOferta, setZgodaOferta] = useState('');
+  const [zgodaNewsletter, setZgodaNewsletter] = useState(false);
+  const [zgodaOferta, setZgodaOferta] = useState(true);
+  const [informacjeDodatkowe, setInformacjeDodatkowe] = useState('');
 
   return (
     <form action="" id="formularzRejestracji" method="get">
@@ -34,7 +39,7 @@ const FormularzRejestracji = () => {
           title="Proszę podać Nazwisko"
           minlength="3"
           maxlength="20"
-          value={nazwisko}
+          value={useFormularzRejestracji.nazwisko}
           onChange={e => setNazwisko(e.target.value)}
         />
         <p class="walidator">Niepoprawna wartość.</p>
@@ -48,7 +53,7 @@ const FormularzRejestracji = () => {
           title="Proszę podać imię"
           minlength="3"
           maxlength="20"
-          value={imie}
+          value={useFormularzRejestracji.imie}
           onChange={e => setImie(e.target.value)}
         />
         <p class="walidator">Niepoprawna wartość.</p>
@@ -61,7 +66,7 @@ const FormularzRejestracji = () => {
           id="telefon"
           name="telefon"
           type="text"
-          value={telefon}
+          value={useFormularzRejestracji.telefon}
           required
           minlength="9"
           maxlength="9"
@@ -74,7 +79,7 @@ const FormularzRejestracji = () => {
           id="email"
           type="email"
           name="adresEmail"
-          value={adresEmail}
+          value={useFormularzRejestracji.adresEmail}
           required
           placeholder="Podaj adres email"
           onChange={e => setAdresEmail(e.target.value)}
@@ -83,7 +88,7 @@ const FormularzRejestracji = () => {
         <input
           id="stronaWWW"
           name="stronaWWW"
-          value={adresStronyWWW}
+          value={useFormularzRejestracji.adresStronyWWW}
           type="url"
           placeholder="Poda adres strony www"
           onChange={e => setAdresStronyWWW(e.target.value)}
@@ -99,7 +104,7 @@ const FormularzRejestracji = () => {
             type="radio"
             name="zgodaRodo"
             required
-            checked={zgodaRodo}
+            checked={useFormularzRejestracji.zgodaRodo}
             value="tak"
             onChange={e => setZgodaRodo(true)}
           />
@@ -109,7 +114,7 @@ const FormularzRejestracji = () => {
             type="radio"
             name="zgodaRodo"
             value="nie"
-            checked={!zgodaRodo}
+            checked={!useFormularzRejestracji.zgodaRodo}
             onChange={e => setZgodaRodo(false)}
           />
         </fieldset>
@@ -123,6 +128,8 @@ const FormularzRejestracji = () => {
             type="checkbox"
             name="zgodaNewsletter"
             value="tak"
+            checked={useFormularzRejestracji.zgodaNewsletter}
+            onChange={e => setZgodaNewsletter(e.target.checked)}
           />
           <label for="zgodaOferta">Zgoda na przesyłanie oferty</label>
           <input
@@ -130,7 +137,8 @@ const FormularzRejestracji = () => {
             type="checkbox"
             name="zgodaOferta"
             value="tak"
-            checked
+            checked={useFormularzRejestracji.zgodaOferta}
+            onChange={e => setZgodaOferta(e.target.checked)}
           />
         </fieldset>
       </fieldset>
@@ -144,6 +152,8 @@ const FormularzRejestracji = () => {
           name="informacjeDodatkowe"
           placeholder="Proszę podać informacje dodatkowe"
           title="Proszę podać informację dodatkowe"
+          value={useFormularzRejestracji.informacjeDodatkowe}
+          onChange={e => setInformacjeDodatkowe(e.target.value)}
         />
       </fieldset>
       <nav>
